@@ -4,7 +4,7 @@
 
 Template::Document->new({
     METADATA => {
-        'modtime' => '1137131067',
+        'modtime' => '1143043451',
         'name' => 'theme_html_doctype.html',
     },
     BLOCK => sub {

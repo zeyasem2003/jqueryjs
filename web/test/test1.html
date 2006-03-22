@@ -1,0 +1,134 @@
+<html id="html">
+  <head>
+    <script type="text/javascript" src="lib/Test/Builder.js"></script>
+		<script type="text/javascript" src="lib/Test/More.js"></script>
+    <script type="text/javascript" src="/src/latest/"></script>
+		<script type="text/javascript">
+		function q() {
+			var r = new Array();
+			for ( var i = 0; i < arguments.length; i++ ) {
+				r.push( document.getElementById( arguments[i] ) );
+			}
+			return r;
+		}
+		function t(a,b,c) {
+			isSet($(b).get(),q.apply(q,c),a);
+		}
+		function o(a) {
+			var li = document.createElement("li");
+			li.innerHTML = a;
+			if ( a.indexOf("#") == 0 )
+				li.className = "comment";
+			else if ( a.indexOf("TODO") >= 0 )
+				li.className = "todo";
+			else if ( a.indexOf("not ok") == 0 )
+				li.classname = "fail";
+			else
+				li.className = "pass";
+			document.getElementById("test").appendChild(li);
+		}
+		
+		//JSAN.use('Test.More');
+		//var test = new Test.Builder();
+		plan({noPlan: true});
+		//test.output(o);
+		//test.failureOutput(o);
+		//test.todoOutput(o);
+		</script>
+		<style>
+		#test {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		#test li.pass {
+			background: green;
+		}
+		
+		#test li.fail {
+			background: red;
+		}
+		
+		#test li.todo {
+			background: blue;
+		}
+		
+		#test li.comment {
+			background: #F5F5F5;
+			color: #666;
+		}
+		</style>
+  </head>
+  <body id="body">
+		<div id="main" style="display: none;">
+			<h1>document.getElementsBySelector Demo</h1>
+			<p id="first">See <a href="http://simon.incutio.com/archive/2003/03/25/#getElementsBySelector" rel="bookmark">this blog entry</a> 
+			for more information.</p><p>Here are some links in a normal paragraph: 
+			<a href="http://www.google.com/" title="Google!">Google</a>, 
+			<a href="http://groups.google.com/">Google Groups</a>. 
+			This link has <code><a href="#">class="blog"</a></code>: 
+			<a href="http://diveintomark.org/" class="blog" hreflang="en" id="mark">diveintomark</a></p>
+			<div id="foo"><p>Everything inside the red border is inside a div with <code>id="foo"</code>.</p>
+			
+			<p lang="en">This is a normal link: <a href="http://www.yahoo.com/">Yahoo</a></p>
+			
+			<p>This link has <code><a href="#2">class="blog"</a></code>: 
+			<a href="http://simon.incutio.com/" class="blog link" id="simon">Simon Willison's Weblog</a></p></div>
+			
+			<p>Try them out: </p>
+			<ul id="first">
+			<li>a</li>
+			<li>p a.blog</li>
+			
+			<li>code a</li>
+			<li>div#foo a</li>
+			<li>#foo a.blog</li>
+			<li>.blog</li>
+			<li>a[title]</li>
+			<li>a[rel="bookmark"]</li>
+			<li>a[href^="http://www"]</li>
+			<li>a[href$="org/"]</li>
+			<li>a[href*="google"]</li>
+			
+			</ul>
+			
+			<p><strong>New:</strong></p>
+			<ul>
+			<li>.blog.link</li>
+			<li>.blog[href*="mark"]</li>
+			<li>p > a</li>
+			<li>p > a , code a</li>
+			<li>p + p</li>
+			<li>p + *</li>
+			
+			<li>p:first-child</li>
+			<li>p:nth-child(1)</li>
+			<li>p:last-child</li>
+			<li>p:nth-last-child(1)</li>
+			<li>p:first-of-type</li>
+			<li>p:nth-of-type(1)</li>
+			<li>p:last-of-type</li>
+			<li>p:nth-last-of-type(1)</li>
+			</ul>
+		</div>
+    <pre id="test"><script>
+			t( "Element Selector (div)", "div", ["main","foo"] );
+			t( "Element Selector (body)", "body", ["body"] );
+			t( "Element Selector (html)", "html", ["html"] );
+			cmpOK( $("*").size(), ">=", 56, "Element Selector (*)" );
+			t( "Parent Element (div div)", "div div", ["foo"] );
+		
+			t( "ID Selector (#body)", "#body", ["body"] );
+			t( "ID Selector w/ Element (body#body)", "body#body", ["body"] );
+			cmpOK($("ul#first").get(0), "==", document.getElementsByTagName("ul")[0],"ID Selector w/ Element (ul#first)");
+			
+			//todo( "Prototype Support", 1 );
+			//	cmpOK( $("test"), "==", q("test"), "ID Selector - Prototype (test)" );
+		
+			t( "Class Selector (.blog)", ".blog", ["simon","mark"] );
+			t( "Class Selector w/ Element (a.blog)", "a.blog", ["simon","mark"] );
+			t( "Parent Class Selector (p .blog)", "p .blog", ["simon","mark"] );
+    </script></pre>
+  </body>
+</html>

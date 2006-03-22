@@ -1,0 +1,20 @@
+This code is part of the the [jQuery Base http://jquery.com/docs/base/] module.
+
+=== Object Modification
+
+==== set(Key,Value)
+
+Sets the 'Key' parameter of every element to 'Value'. Similar to doing: element.Key = Value;
+
+*Example:*
+  $("input").set("value","test");
+
+----
+
+==== set(Hash)
+
+Takes a hash of Key/Value pairs and runs set(Key,Value) on every matched element
+.
+
+*Example:*
+  $("input").set({value:"test",foo:bar});

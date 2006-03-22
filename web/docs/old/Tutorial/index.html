@@ -1,0 +1,162 @@
+
+
+<!-- END theme_html_doctype -->
+
+<html>
+<head>
+	<title>jQuery: Documentation: Tutorial</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <script type="text/javascript" src="/src/latest/"></script>
+	<script type="text/javascript" src="/js/global.js"></script>
+</head>
+<body>
+<div class="head"></div>
+	<div class="wrap"><div class="wrap2"><br/>
+		<h1><a href="/"><img src="/images/hat2.gif"/> jQuery</a><br/><span>New Wave Javascript</span></h1>
+		
+<!-- END kwiki_begin -->
+
+<!-- END theme_html_begin -->
+
+<br/>
+<div class="navigation">
+<!-- BEGIN theme_title_pane -->
+<div id="title_pane">
+<h2><a href="/docs/">Docs</a> &raquo; Tutorial
+<!--<span>(<a href="/docs/Tutorial/edit/" rel="nofollow">Edit</a>)</span>--></h2>
+</div><br/>
+<!-- END theme_title_pane -->
+
+<!-- BEGIN theme_status_pane -->
+<div id="status_pane">
+<!-- BEGIN status_pane -->
+<div class="status">
+
+</div>
+<!-- END status_pane -->
+
+</div>
+<!-- END theme_status_pane -->
+
+</div>
+
+<!-- BEGIN theme_content_pane -->
+<div id="content_pane">
+<!-- BEGIN display_content -->
+<div class="wiki">
+<p>
+This is a basic tutorial, designed to help you get started using jQuery. A good place to start is by looking at common problems and the solution&#40;s&#41; that jQuery provides to them.
+
+</p>
+<p>
+If you don&#39;t have a test page setup yet, I recommend that you create a new HTML page with the following contents, just to get started:
+
+</p>
+<pre>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&#34;text/javascript&#34;
+  src=&#34;http://jquery.com/src/latest/&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+  // Your code goes here
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;a href=&#34;http://jquery.com/&#34;&gt;jQuery&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h3>Launching Code on Document Ready</h3>
+<p>
+The first thing that most Javascript programmers end up doing is adding some code to their program, similar to this:
+
+</p>
+<pre>window.onload = function&#40;&#41;{ ... }
+</pre>
+<p>
+Inside of which is the code that you want to run right when the page is loaded. Problematically, however, the Javascript code isn&#39;t run until all images are finished downloading &#40;this includes banner ads, for example&#41;. The reason for using window.onload in the first place is due to the fact that the HTML &#39;document&#39; isn&#39;t finished loading yet, when you first try to run your code.
+
+</p>
+<p>
+To circumvent both problems, jQuery has a simple statement that you can use:
+ 
+</p>
+<pre>$&#40;document&#41;.onready&#40;function&#40;&#41;{
+  // Your code here
+}&#41;;
+</pre>
+<p>
+This code checks the document and waits until its ready to be manipulated - which is just what we want. So take the above snippet and stick it into the script area on your test page.
+
+</p>
+<h3>Making Something Happen onClick</h3>
+<p>
+The first thing we&#39;re going to try is having something happen whenever a link is clicked. In the onready function, try adding the following:
+
+</p>
+<pre>$&#40;&#34;a&#34;&#41;.onclick&#40;function&#40;&#41;{
+  alert&#40;&#34;Thanks for visiting!&#34;&#41;;
+}&#41;;
+</pre>
+<p>
+Save your HTML file and reload the test page in your browser. Clicking the one link on the page should make the Alert pop-up, before leaving to go to the main jQuery page.
+
+</p>
+<h3>Adding a Class</h3>
+<p>
+Another thing that is a common task is the addition &#40;or removal&#41; of classes from elements, for example:
+
+</p>
+<pre>$&#40;&#34;a&#34;&#41;.addClass&#40;&#34;test&#34;&#41;;
+</pre>
+<p>
+or even:
+
+</p>
+<pre>$&#40;&#34;a&#34;&#41;.removeClass&#40;&#34;test&#34;&#41;;
+</pre>
+<p>
+if you were to add some style information into the header of your script, like this:
+
+</p>
+<pre>&lt;style&gt;a.test{font-weight:bold}&lt;/style&gt;
+</pre>
+<p>
+and then added the above addClass call - all your A elements would now be bold.
+
+</p>
+<h3>Special Effects</h3>
+<p>
+In the <a href="http://jquery.com/docs/base/">Basic Effects</a> plugin, a couple of handy special effects are provided, to really make your web site stand out. To put this to the test, change the onclick that you added earlier to this:
+
+</p>
+<pre>$&#40;&#34;a&#34;&#41;.onclick&#40;function&#40;&#41;{
+  $&#40;this&#41;.hide&#40;&#34;slow&#34;&#41;;
+  return false;
+}&#41;;
+</pre>
+<p>
+Now, if you click the links, it should make the link slowly dissapear. Some examples of these effects, and similar, can be found on <a href="http://feedpile.com/">Feed Pile.com</a>.
+
+</p>
+<h3>Next Steps</h3>
+<p>
+From here, you should probably begin looking at the rest of the <a href="/docs/Documentation/">Documentation</a> - it&#39;s very comprehensive and covers all aspects of jQuery. If you have any questions, please feel free to <a href="mailto:jeresig@gmail.com">drop me an email</a>.
+</p>
+</div>
+<!-- BEGIN display_changed_by -->
+
+<!-- END display_changed_by -->
+
+<!-- END display_content -->
+
+</div>
+<!-- END theme_content_pane -->
+
+
+<!-- BEGIN theme_html_end -->
+<!-- BEGIN kwiki_end -->
+	</div></div>
+</body>
+</html>
+
+

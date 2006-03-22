@@ -1,0 +1,177 @@
+Based upon multiple discussions in the mailing list, the need for functions that handle the nitty-gritty of XPath is becoming apparent. The desired functionality is pretty straight forward, however the naming is still up in the air.
+
+=== Match Multiple Ancestor Elements
+This would be used to match ancestor elements of the currently matched elements (elements that are higher in the DOM tree than the current element).
+
+*Proposed Names:* ancestors, parents
+
+*Example:* The following would match all ancestor LI elements that are contain a LI.
+  $("li").ancestors("li");
+
+*Tree:* (Elements with a '*' are matched)
+  <ol>
+    *<li>Foo
+      <ol>
+        <li>Bar</li>
+        <li>Baz</li>
+      </ol>
+    </li>
+    <li>Zoo</li>
+    <li>Ping Pong</li>
+  </ol>
+
+=== Match First Ancestor Element
+Very similar to the previous method, but would only match the first element found.
+
+*Proposed Names:* ancestor, firstAncestor
+
+*Example:* The following would match the first OL ancestor for the #bar element.
+  $("li#bar").ancestor("ol");
+
+*Tree:* (Elements with a '*' are matched)
+  <ol>
+    <li>Foo
+      *<ol>
+        <li id='bar'>Bar</li>
+        <li>Baz</li>
+      </ol>
+    </li>
+    <li>Zoo</li>
+    <li>Ping Pong</li>
+  </ol>
+
+=== Match Parent Element
+Again, similar to the first match - but will only check the parent  element for a match.
+
+*Proposed Names:* parent
+
+*Example:* This would match all elements and then find all parent OL elements.
+  $("*").parent("ol");
+
+*Tree:* (Elements with a '*' are matched)
+  *<ol>
+    <li>Foo
+      *<ol>
+        <li>Bar</li>
+        <li>Baz</li>
+      </ol>
+    </li>
+    <li>Zoo</li>
+    <li>Ping Pong</li>
+  </ol>
+
+*Example:* This would match all elements and then find all parent elements.
+  $("*").parent();
+
+*Tree:* (Elements with a '*' are matched)
+  *<ol>
+    *<li>Foo
+      *<ol>
+        <li>Bar</li>
+        <li>Baz</li>
+      </ol>
+    </li>
+    <li>Zoo</li>
+    <li>Ping Pong</li>
+  </ol>
+
+=== Match Multiple Descendant Elements
+This would, effectively, be the same as the current .find() method, but a name that follows the XPath naming convention might be nice.
+
+*Proposed Names:* descendants, children
+
+*Example:* The following would match all OL elements that are contained with an OL element.
+  $("ol").descendants("ol");
+
+*Tree:* (Elements with a '*' are matched)
+  <ol>
+    <li>Foo
+      *<ol>
+        <li>Bar</li>
+        <li>Baz</li>
+      </ol>
+    </li>
+    <li>Zoo</li>
+    <li>Ping Pong</li>
+  </ol>
+
+*Example:* The following would match all OL elements then match all descendant elements.
+  $("ol").descendants();
+
+*Tree:* (Elements with a '*' are matched)
+  <ol>
+    *<li>Foo
+      *<ol>
+        *<li>Bar</li>
+        *<li>Baz</li>
+      </ol>
+    </li>
+    *<li>Zoo</li>
+    *<li>Ping Pong</li>
+  </ol>
+
+=== Match First Descendant Element
+This would match the same thing as the previous method, but then exclude the results to only the first matched item.
+
+*Proposed Names:* descendant, first, firstDescendant, child
+
+*Example:* The following would find the first LI element in all Ordered Lists.
+  $("ol").descendant("li");
+
+*Tree:* (Elements with a '*' are matched)
+  <ol>
+    *<li>Foo
+      <ol>
+        *<li>Bar</li>
+        <li>Baz</li>
+      </ol>
+    </li>
+    <li>Zoo</li>
+    <li>Ping Pong</li>
+  </ol>
+
+=== Match Child Elements
+Similar to matching against all descendant elements, but it only filters against child elements exclusively.
+
+*Proposed Names:* children, child
+
+*Example:* Finds all LI elements and then looks for all OL children.
+  $("li").children("ol");
+
+*Tree:* (Elements with a '*' are matched)
+  <ol>
+    <li>Foo
+      *<ol>
+        <li>Bar</li>
+        <li>Baz</li>
+      </ol>
+    </li>
+    <li>Zoo</li>
+    <li>Ping Pong</li>
+  </ol>
+
+*Example:* Finds all LI elements and then looks for all children.
+  $("li").children();
+
+*Tree:* (Elements with a '*' are matched)
+  <ol>
+    *<li>Foo
+       *<ol>
+         <li>Bar</li>
+         <li>Baz</li>
+       </ol>
+    </li>
+    *<li>Zoo</li>
+    *<li>Ping Pong</li>
+  </ol>
+
+=== Match Previous Siblings
+Looks for elements on the same axis but before the matched element.
+
+*Possible Names:* prev, before
+
+
+=== Match Next Siblings
+=== Contains specific Element(s)
+=== Has an Attribute
+=== Has specfic Ancestor(s)

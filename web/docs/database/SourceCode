@@ -1,0 +1,6 @@
+The full source code for jQuery. The code, itself, it written rather cleanly - in an attempt to be self-documenting. If you've spotted some areas of code that could be improved, feel free to [contact me jeresig@gmail.com].
+
+* [Base Source http://jquery.com/src/jquery/jquery-latest.js]
+* [Basic Effects Source http://jquery.com/src/fx/fx-latest.js]
+* [Minifx Source http://jquery.com/src/minifx/minifx-latest.js]
+* [Advanced Events Source http://jquery.com/src/event/event-latest.js]

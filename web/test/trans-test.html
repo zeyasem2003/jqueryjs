@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+       <title>Receiving Module - Find Transaction</title>
+       <meta http-equiv="Content-Type" content="text/html;
+charset=iso-8859-1" />
+       <!--<link href="css/dssi.css" rel="stylesheet" type="text/css"
+/>
+       <link href="css/screen.css" rel="stylesheet" type="text/css" />-->
+<script type="text/javascript" src="http://jquery.com/src/latest/"></script>
+
+           
+
+            <script type="text/javascript">  
+
+                        $(document).ready(function() {                          
+
+                                    $("a").click(function(){
+
+                                      alert("Thanks for visiting!");
+
+                                    });                    
+
+                        });
+
+            </script>
+</head>
+<body id="rmodule-findtransaction">
+
+       <div id="content">
+
+               <div id="header">
+
+                       <table cellspacing="0">
+                               <tr>
+                                       <td class="orange_square"><img
+src="images/orange_square.gif" /></td>
+                                       <td><h1>Receiving
+Module</h1></td>
+                                       <td class="legend">
+                                               <table>
+                                                       <tr>
+                                                               <th
+colspan="2">Receive Status</th>
+                                                               <th
+colspan="2">Invoice Status</th>
+
+
+<th>Reasons</th>
+                                                       </tr>
+                                                       <tr>
+                                                               <td><img
+src="images/finished.gif" /></td>
+                                                               <td>=
+Fully Received</td>
+
+
+
+
+<td><b>A</b></td>
+                                                               <td>=
+Invoice Approved</td>
+
+
+
+
+<td>&nbsp;</td>
+                                                       </tr>
+                                                       <tr>
+                                                               <td><img
+src="images/half_finished.gif" /></td>
+                                                               <td>=
+Partially Received</td>
+
+
+<td><b>P</b></td>
+                                                               <td>=
+Order is complete and pending approval</td>
+                                                       </tr>
+
+                                                       <tr>
+                                                               <td><img
+src="images/unfinished.gif" /></td>
+                                                               <td>=
+Not Received</td>
+
+
+<td><b>N</b></td>
+                                                               <td>=
+Invoice not available for approval</td>
+                                                       </tr>
+
+                                               </table>
+                                       </td>
+                               </tr>
+                       </table>
+
+               </div>
+
+               <div id="main">
+
+                       <h2>Find Transaction</h2>
+
+                       <div class="filter">
+                               <div class="filter-tabs">
+                                       <ul>
+                                               <li><a href="#"
+id="header-tab" class="active" onclick="showDetail();">Header</a></li>
+                                               <li><a href="#"
+id="detail-tab">Detail</a></li>
+                                       </ul>
+                               </div>
+                               <div id="filter-content-header">
+
+                                       <table>
+
+                                               <tr>
+
+                                                       <td>
+                                                               <label
+for="supplier">Supplier</label> <br />
+                                                               <input
+type="text" id="supplier" />
+                                                       </td>
+
+                                                       <td>
+                                                               <label
+for="po">PO#</label> <br />
+                                                               <input
+type="text" id="po" />
+                                                       </td>
+
+                                                       <td>
+                                                               <label
+for="invoice">Invoice#</label> <br />
+                                                               <input
+type="text" id="invoice" />
+                                                       </td>
+
+
+                                               </tr>
+
+                                       </table>
+
+                               </div>
+
+                               <div id="filter-content-detail">
+
+                                       <table>
+
+                                               <tr>
+
+                                                       <td>
+                                                               <label
+for="supp_item">Supplier Item#</label> <br />
+                                                               <input
+type="text" id="supp_item" />
+                                                       </td>
+
+                                                       <td>
+                                                               <label
+for="status">Received Status</label> <br />
+                                                               <select>
+
+<option value="all">Any Status</option>
+
+<option value="Received">Received</option>
+
+<option value="Partially Received">Partially Received</option>
+
+<option value="Not Received">Not Recieved</option>
+
+</select>
+                                                       </td>
+
+                                                       <td>
+                                                               <label
+for="status">Invoice Status</label> <br />
+                                                               <select>
+
+<option value="all">Any Status</option>
+
+<option value="Received">Received</option>
+
+<option value="Partially Received">Partially Received</option>
+
+<option value="Not Received">Not Recieved</option>
+
+</select>
+                                                       </td>
+
+                                               </tr>
+
+                                               <tr>
+                                                       <td colspan="3">
+
+                                                               <label
+for="invoice">Reason Codes</label> <br />
+                                                               <select>
+
+<option>Any Reason</option>
+
+<option>Damaged/Returned - Credit Expected</option>
+
+<option>Damaged/Returned - Replacement Expected</option>
+
+<option>Undershipment - Credit Expected</option>
+
+<option>Undershipment - Replacement Expected</option>
+
+<option>Overshipment</option>
+
+<option>Substituted Item</option>
+
+<option>Canceled Item(s)</option>
+
+<option>Recall</option>
+
+</select>
+
+                                                       </td>
+
+                                               </tr>
+
+                                       </table>
+
+                               </div>
+                       </div>
+
+
+                       <div class="content">
+
+                               <table cellspacing="0">
+
+                                       <thead>
+
+                                               <tr>
+
+<th>Supplier</th>
+                                                       <th>PO Date</th>
+                                                       <th>PO#</th>
+                                                       <th>Invoice
+#</th>
+                                                       <th>Invoice
+Date</th>
+                                                       <th>Lines</th>
+                                                       <th>Total</th>
+                                                       <th
+colspan="3">Indicators</th>
+                                                       <th>Receive</th>
+                                               </tr>
+
+                                               <tr>
+                                                       <td
+class="supplier-sort"><a href="#"><img src="images/sort_down.gif"
+alt="Sort" /></a></td>
+                                                       <td><a
+href="#"><img src="images/sort_down.gif" alt="Sort" /></a></td>
+                                                       <td
+class="po_sort"><a href="#"><img src="images/sort_down.gif" alt="Sort"
+/></a></td>
+                                                       <td><a
+href="#"><img src="images/sort_down.gif" alt="Sort" /></a></td>
+                                                       <td><a
+href="#"><img src="images/sort_down.gif" alt="Sort" /></a></td>
+                                                       <td><a
+href="#"><img src="images/sort_down.gif" alt="Sort" /></a></td>
+                                                       <td><a
+href="#"><img src="images/sort_down.gif" alt="Sort" /></a></td>
+                                                       <td><!--
+Receiving Status --></td>
+                                                       <td><!-- Reason
+--></td>
+                                                       <td><!-- Invoice
+Status --></td>
+                                                       <td></td>
+                                               </tr>
+
+                                       </thead>
+
+                                       <tbody>
+
+                                               <tr>
+                                                       <td>ABC
+MedSupplier</td>
+                                                       <td>1/12/06</td>
+                                                       <td><a
+href="#">YOU111N1111</a></td>
+                                                       <td></td>
+                                                       <td></td>
+                                                       <td>10</td>
+                                                       <td></td>
+                                                       <td
+class="icon_col"><img src="images/unfinished.gif" /></td>
+                                                       <td
+class="icon_col"></td>
+                                                       <td
+class="icon_col">N</td>
+                                                       <td><a
+href="#"><img src="images/checkmark.gif" border="0" height="18"
+width="19"></a></td>
+                                               </tr>
+
+                                               <tr>
+                                                       <td>ABC
+MedSupplier</td>
+                                                       <td>1/14/06</td>
+                                                       <td><a
+href="#">YOU123N1234</a></td>
+                                                       <td><a
+href="#">601103878</a></td>
+                                                       <td>1/14/06</td>
+                                                       <td>1</td>
+                                                       <td></td>
+                                                       <td
+class="icon_col"><img src="images/finished.gif" /></td>
+                                                       <td
+class="icon_col"></td>
+                                                       <td
+class="icon_col">P</td>
+                                                       <td><a
+href="#"><img src="images/checkmark.gif" border="0" height="18"
+width="19"></a></td>
+                                               </tr>
+
+                                               <tr>
+                                                       <td>ABC
+MedSupplier</td>
+                                                       <td>1/12/06</td>
+                                                       <td><a
+href="#">YOU456N4567</a></td>
+                                                       <td><a
+href="#">601103878</a></td>
+                                                       <td>1/15/06</td>
+                                                       <td>12</td>
+                                                       <td></td>
+                                                       <td
+class="icon_col"></td>
+                                                       <td
+class="icon_col"></td>
+                                                       <td
+class="icon_col"></td>
+                                                       <td><a
+href="#"><img src="images/checkmark.gif" border="0" height="18"
+width="19"></a></td>
+                                               </tr>
+
+                                               <tr>
+
+<td>TestSupplier</td>
+                                                       <td>1/10/06</td>
+                                                       <td><a
+href="#">YOU543N1111</a></td>
+                                                       <td><a
+href="#">192468992</a></td>
+                                                       <td>1/12/06</td>
+                                                       <td>2</td>
+                                                       <td></td>
+                                                       <td
+class="icon_col"><img src="images/half_finished.gif" /></td>
+                                                       <td
+class="icon_col">AC</td>
+                                                       <td
+class="icon_col">A</td>
+                                                       <td><a
+href="#"><img src="images/checkmark.gif" border="0" height="18"
+width="19"></a></td>
+                                               </tr>
+
+                                       </tbody>
+
+
+                               </table>
+
+                       </div>
+
+               </div>
+
+
+       </div>
+
+
+</body>
+</html>

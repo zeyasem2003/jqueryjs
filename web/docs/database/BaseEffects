@@ -1,0 +1,28 @@
+This code is part of the the [jQuery Base http://jquery.com/docs/base/] module.
+
+=== Basic Effects
+
+==== hide()
+
+This function hides all the matched elements, so that they are no longer shown on the screen.
+
+*Example:*
+  !$("p").hide();
+
+----
+
+==== show()
+
+This function reveals all the matched elements, so that they are  shown on the screen.
+
+*Example:*
+  !$("p").show();
+
+----
+
+==== toggle()
+
+This function reveals all hidden, matched, elements and hides are visible, matched, elements.
+
+*Example:*
+  !$("p").toggle();

@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Shady Hotness</title>
+		<base href="http://sporkmonger.com/"/>
+    <link href="/files/shadyhotness.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="http://jquery.com/src/latest/" type="text/javascript"></script>
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$("img.dropshadow")
+				.wrap("<div class='wrap1'><div class='wrap2'>" + 
+				  "<div class='wrap3'></div></div></div>");
+		});
+		</script>
+  </head>
+
+  <body>
+    <img class="dropshadow" src="http://sporkmonger.com/files/zomgcute.jpg" />
+  </body>
+</html>

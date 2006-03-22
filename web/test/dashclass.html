@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>test</title>
+  <script type="text/javascript" src="http://jquery.com/src/dev/"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("a").removeClass("odd").each(function(){
+	if ( this.className != "odd-even even odd-even even-odd" ) {
+          alert( $(this).text() " doesn't work right." );
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <div id="container">
+    <a href="" class="odd-even even odd-even odd even-odd">Middle</a>
+    <a href="" class="odd-even even odd-even odd even-odd odd">Last</a>
+    <a href="" class="odd odd-even even odd-even odd even-odd">First</a>
+  </div>
+</body>
+</html>

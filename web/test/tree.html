@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>test</title>
+  <script type="text/javascript" src="http://jquery.com/src/dev/"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#masternav li[ul] > a").toggle(function(){
+        $("ul",this.parentNode).slideDown("medium");
+      },function(){
+        $("ul",this.parentNode).slideUp("medium");
+      });
+    });
+  </script>
+</head>
+
+<body>
+<ul id="masternav">
+  <li><a href="#">parent link</a>
+     <ul style="display:none;">
+        <li><a href="#">child link</a></li>
+     </ul>
+  </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Height Auto/Overflow Test</title>
+	<script type="text/javascript" src="http://jquery.com/src/dev/"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#clicker').click(function(){
+				$('#lorem').show();
+				return false;
+			});
+			$('#again').click(function(){
+				$('#rest').show();
+				return false;
+			});
+			$('#bagain').click(function(){
+				$('#brest').show();
+				return false;
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Height Auto/Overflow Test</h1>
+
+	<p><a href="" id="clicker">Click Me To Hide The Text Below</a></p>
+	<div id="lorem" style="border:1px solid #000;display:none;">
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla eu odio. Nullam condimentum ipsum eget leo tristique tincidunt. Aliquam porttitor nibh at eros. Suspendisse ultricies bibendum risus. Fusce consequat. Phasellus pulvinar mollis ipsum. Nam sagittis porta sem. Proin imperdiet accumsan nunc. Integer nonummy. Quisque non odio. Maecenas vestibulum consectetuer odio. Mauris vel diam. Sed lacinia. Praesent at magna.</p>
+<a href="" id="again">Click to show rest</a>
+<div id="rest" style="display:none;border:1px solid red;">
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla eu odio. Nullam condimentum ipsum eget leo tristique tincidunt. Aliquam porttitor nibh at eros. Suspendisse ultricies bibendum risus. Fusce consequat. Phasellus pulvinar mollis ipsum. Nam sagittis porta sem. Proin imperdiet accumsan nunc. Integer nonummy. Quisque non odio. Maecenas vestibulum consectetuer odio. Mauris vel diam. Sed lacinia. Praesent at magna.</p>
+
+<a href="" id="bagain">Click to show rest</a>
+<div id="brest" style="display:none;border:1px solid green;">
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla eu odio. Nullam condimentum ipsum eget leo tristique tincidunt. Aliquam porttitor nibh at eros. Suspendisse ultricies bibendum risus. Fusce consequat. Phasellus pulvinar mollis ipsum. Nam sagittis porta sem. Proin imperdiet accumsan nunc. Integer nonummy. Quisque non odio. Maecenas vestibulum consectetuer odio. Mauris vel diam. Sed lacinia. Praesent at magna.</p>
+</div>
+</div>
+	</div>
+</body>
+
+</html>
+

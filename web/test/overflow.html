@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>ByteCore Administration Panel</title>
+    <base href="http://skyfex.no-ip.com/~skyfex/ByteCore%202/Project%20Data/Admin%20Panel/"/>
+    <style type="text/css" media="screen">
+    /* <![CDATA[ */
+        @import "style.css";
+    /* ]]> */
+    </style>
+    <script type="text/javascript" src="http://jquery.com/src/latest/"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8">
+    // <![CDATA[
+        function resize() {
+            pageEl = document.getElementById("page");
+            applicationEl = document.getElementById("application");
+
+            pageEl.style.height = (top.innerHeight-82) + "px";
+        }
+        
+        function expandTree(e) {
+            $(this.parentNode).find("ol:eq(0)").slideDown("fast");
+            //$(this.parentNode).find("ol:eq(0)").css("overflow", "visible");
+            $(this).removeClass("expandButton");
+            $(this).addClass("collapseButton");
+            $(this).unclick(expandTree);
+            $(this).click(collapseTree);
+        }
+        
+        function collapseTree(e) {
+            $(this.parentNode).find("ol:eq(0)").slideUp("fast");
+            //$(this.parentNode).find("ol:eq(0)").css("display", "none");
+            //Effect.BlindDown($(this.parentNode).find("ol:eq(0)").get(0));  
+            $(this).removeClass("collapseButton");
+            $(this).addClass("expandButton");
+            $(this).unclick(collapseTree);
+            $(this).click(expandTree);
+            
+            //alert(this.parentNode);
+        }
+        
+        function navNodeClick(e) {
+            $("#navigation .selected").removeClass("selected");
+            $(this.parentNode).addClass("selected");
+            document.getElementById("content").innerHTML = this.id;
+            //alert(this.id)
+        }
+        
+                
+        $(document).resize(resize);
+        $(document).ready(function(){            
+            resize();            
+            $("div.expandButton").click(expandTree);
+        	$("div.collapseButton").click(collapseTree);        	
+        	$("#navigation .label").mousedown(navNodeClick)
+        });
+        
+       /* */
+        
+    // ]]>
+    </script>
+    
+</head>
+<body id="siteBody">
+
+<div id="application">
+    
+    <!-- Header -->
+    <div id="header">
+    <h1>Administration</h1>
+    <ul id="topMenu" class="toolbar"><li id="sitesPageButton" class="selected"><a href="#">Sites</a></li><li id="objectsPageButton"><a href="#">Object</a></li></ul>
+    </div>
+    <!-- Page -->
+    <div id="page">
+        
+        <!-- Sample Sites Page -->
+        <!-- Page Navigation -->
+        <div id="navigation" class="treeView">
+            <ol>
+                <li><div class="collapseButton"> </div><span id="site#2" class="label siteNode">Brainbyte</span>
+                <ol>
+                    <li><div class="collapseButton"> </div><span id="folder#3" class="label folderNode">Blog</span>
+                    <ol>
+                        <li><span class="label objectsNode">5 Objects</span></li>
+                        <li><span id="page#3" class="label pageNode">index</span></li>
+                        
+                    </ol></li>
+                    <li><div class="collapseButton"> </div><span id="folder#3" class="label folderNode">Products</span>
+                    <ol>
+                        <li><span class="label objectsNode">3 Objects</span></li>
+                        <li class="selected"><span id="page#6" class="label pageNode">index</span></li>
+                        
+                    </ol></li>
+                    <li><span class="label objectsNode">0 Objects</span></li>
+                </ol></li>
+            </ol>
+        </div>
+        
+        <!-- Selected Object/List/Page -->
+        <div id="selection">
+            <div id="content">
+            <h2>Object Something</h2>
+            <p>127.0.0.1 er Internett sin hovedport, angriper du den får du FBI etter deg.</p>
+          </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

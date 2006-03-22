@@ -1,0 +1,43 @@
+
+
+id: all
+title: all
+alt
+name: all
+href: link
+src
+type: link
+target
+action
+length
+size
+
+text()
+html()
+
+
+Functions:
+disable()
+enable()
+
+rel()
+//addRel()
+//removeRel()
+
+class() // add/remove in one fell swoop
+removeClass() //[empty = remove all]
+
+blur()
+focus()
+select()
+click()
+check()
+//uncheck()
+
+CSS methods:
+height()
+width()
+left()
+top()
+offsetLeft()
+offsetTop()

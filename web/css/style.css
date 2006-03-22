@@ -1,0 +1,121 @@
+html, body {
+	font: 16px Arial;
+	text-align: center;
+	background: #212121;
+	color: #FFF;
+	/*background: #963;*/
+	margin: 0 auto;
+}
+
+.head {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: url(/images/blueblack.gif);
+	height: 90px;
+	width: 100%;
+	z-index: 10;
+}
+
+.wrap {
+	position: relative;
+	text-align: left;
+	margin: 0 auto;
+	width: 600px;
+	top: 10px;
+	/*border-left: 20px solid #f60;
+	border-right: 20px solid #f60;*/
+	z-index: 30;
+}
+
+.wrap2 {
+	padding: 0 15px;
+	/*border-left: 10px solid #fc0;
+	border-right: 10px solid #fc0;*/
+}
+
+h1, h2 {
+	margin: 0;
+	padding: 0;
+}
+
+h1 a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+h1 img {
+	float: left;
+	margin: 5px 10px 0 0;
+	border: 0px;
+}
+
+h1 span {
+	font-size: 0.7em;
+}
+
+h2 span {
+	font-size: 0.7em;
+	font-weight: normal;
+}
+
+a {
+	color: #69C;
+}
+
+b {
+
+}
+
+p {
+	line-height: 1.2em;
+}
+
+pre {
+	background: #000;
+	color: #00FF00;
+	padding: 5px;
+	margin-left: 2%;
+	width: 96%;
+	position: relative;
+}
+
+pre input {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+}
+
+#form {
+	margin: 0 0 0 10px;
+}
+
+#form ul {
+	list-style: none;
+	margin: 0 0 0 20px;
+	padding: 0;
+}
+
+#form ul li {
+	position: relative;
+	padding: 0 0 0 24px;
+}
+
+#form ul li input {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+p.surprise {
+	display: none;
+}
+
+p.ohmy {
+	margin: 0 20px;
+	background: #F5F5F5;
+	color: #212121;
+}

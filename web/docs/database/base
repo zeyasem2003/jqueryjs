@@ -1,0 +1,53 @@
+This is the core module for the entire jQuery library. It handles the loading of all plugins, basic funtionality, and all selectors - supporting [CSS] 1-3 and basic [XPath].
+
+If you're looking for more information on how to use jQuery, I'd recommend beginning with the [Tutorial] and going from there.
+
+=== Base Methods
+
+All of the available methods are broken up by functionality.
+* *[DOM Traversing BaseTraverse]* - Includes: find, end, filter, not, and add.
+* *[Iteration BaseIterator]* - Includes: size, get, and each.
+* *[Events BaseEvents]* - Includes: bind and unbind.
+* *[DOM Modifiation BaseDOM]* - Includes: set, html, remove, append, prepend, before, after, and wrap.
+* *[Style BaseStyle]* - Incudes: css, addClass, and removeClass.
+* *[Effects BaseEffects]* - Includes: hide, show, and toggle.
+
+=== The $() Function
+
+==== $(Expression)
+
+The functionality of jQuery centers around one central function: $(). Everything in jQuery is based upon this, or uses this in some way. The most basic use of this function is to pass in an [expression BaseExpression] (usually consisting of [CSS] or [XPath]), which then finds all matching elements and remembers them for later use. For example:
+
+  $("p")
+
+finds all the p elements. From here, the $() function can be [chained ChainableMethods] upon, adding more and more functionality. For a list of all methods included in the base package, please see the bottom of this page.
+
+By default, $() looks for DOM elements with the current HTML document (which is what 99% of developers will need). If you need to change this, please see below.
+
+==== $(!DOMElement)
+
+If you pass in a DOM element to the $() function, jQuery will wrap itself around it and provide all the additional functionality that you need. For example, all of these are valid (using the [advanced events http://jquery.com/docs/event/] module):
+
+  $(document.getElementById("test")).onclick(...)
+  
+  $(document).onready(...)
+
+  $(window).onload(...)
+
+  $(xml.responseXML) // For working with XMLHTTPRequest
+
+==== $(...,Context)
+
+The second argument to the $() function is an optional DOM Element, specifying the context within which all DOM Elements will be found. This is, effectively, a shorthand for doing:
+
+  $(Context).find(...)
+
+For example, all of these are valid:
+
+  $("p",document)
+
+  $("title",xml.reponseXML)
+
+  $("div",document.getElementById("test"))
+
+From here, you will want to start looking at the different types of methods that are available, to be used. Also, don't forget to look at the [other modules http://jquery.com/docs/] available for download.

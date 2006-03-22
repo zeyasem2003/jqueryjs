@@ -1,0 +1,402 @@
+
+
+<!-- END theme_html_doctype -->
+
+<html>
+<head>
+	<title>jQuery: Documentation: base</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <script type="text/javascript" src="/src/latest/"></script>
+	<script type="text/javascript" src="/js/global.js"></script>
+</head>
+<body>
+<div class="head"></div>
+	<div class="wrap"><div class="wrap2"><br/>
+		<h1><a href="/"><img src="/images/hat2.gif"/> jQuery</a><br/><span>New Wave Javascript</span></h1>
+		
+<!-- END kwiki_begin -->
+
+<!-- END theme_html_begin -->
+
+<br/>
+<div class="navigation">
+<!-- BEGIN theme_title_pane -->
+<div id="title_pane">
+<h2><a href="/docs/">Docs</a> &raquo; base
+<!--<span>(<a href="/docs/base/edit/" rel="nofollow">Edit</a>)</span>--></h2>
+</div><br/>
+<!-- END theme_title_pane -->
+
+<!-- BEGIN theme_status_pane -->
+<div id="status_pane">
+<!-- BEGIN status_pane -->
+<div class="status">
+
+</div>
+<!-- END status_pane -->
+
+</div>
+<!-- END theme_status_pane -->
+
+</div>
+
+<!-- BEGIN theme_content_pane -->
+<div id="content_pane">
+<!-- BEGIN display_content -->
+<div class="wiki">
+<p>
+This is the core module for the entire jQuery library. It handles the loading of all plugins, basic funtionality, and all selectors - supporting <a href="/docs/CSS/">CSS</a> 1-3 and basic <a href="/docs/XPath/">XPath</a>.
+
+</p>
+<p>
+If you&#39;re looking for more information on how to use jQuery, I&#39;d recommend beginning with the <a href="/docs/Tutorial/">Tutorial</a> and going from there.
+
+</p>
+<h3>Traversing</h3>
+<h4>find&#40;String&#41;</h4>
+<p>
+This looks for more elements within the context of all matched elements. In CSS-speak, the below is the same as doing: &#34;p a&#34;.
+
+</p>
+<pre>$&#40;&#34;p&#34;&#41;.find&#40;&#34;a&#34;&#41;.style&#40;&#34;fontWeight&#34;,&#34;bold&#34;&#41;;
+</pre>
+<hr />
+<h4>end&#40;&#41;</h4>
+<p>
+The purpose of this function is the end the last find&#40;&#41; call, and move back to the last time either find&#40;&#41; or $&#40;&#41; was called. The main advantage that this has is the ability to do multiple finds, for example:
+
+</p>
+<pre>$&#40;&#34;p&#34;&#41;
+  .find&#40;&#34;a&#34;&#41;
+    .style&#40;&#34;fontWeight&#34;,&#34;bold&#34;&#41;
+  .end&#40;&#41;
+  .find&#40;&#34;img&#34;&#41;
+    .hide&#40;&#41;
+  .end&#40;&#41;;
+</pre>
+<p>
+The above code finds all the paragraphs, then finds  all the A tags, makes them bold, then finds all the IMG tags &#40;within all the paragraphs&#41; and hides them.
+
+</p>
+<hr />
+<h4>filter&#40;String&#41;</h4>
+<p>
+The difference between find and filter is an important one: find locates all child elements that match the specified expression, filter removes any elements &#40;from the current set of matched elements&#41; that do not match the expression.
+
+</p>
+<pre>$&#40;&#34;p&#34;&#41;.filter&#40;&#34;.ohmy&#34;&#41;;
+</pre>
+<p>
+The above code finds all paragraph elements and then removes any of the matched elements which do not have an ohmy class.
+
+</p>
+<hr />
+<h4>not&#40;String&#41;</h4>
+<p>
+When you pass a String to the not function, it does the exact opposite as filter - in that it only keeps the elements that do not match the expresion.
+
+</p>
+<pre>$&#40;&#34;p&#34;&#41;.not&#40;&#34;.ohmy&#34;&#41;;
+</pre>
+<p>
+The above would only return the paragraphs which do not have an ohmy class.
+
+</p>
+<hr />
+<h4>not&#40;DOMElement&#41;</h4>
+<p>
+This removes the specified <a href="/docs/DOMElement/">DOMElement</a> from the list of matched elements. Does not complain if the element is already not in the list.
+
+</p>
+<pre>// Bad example, but you get the idea
+$&#40;&#34;p&#34;&#41;.not&#40; document.getElementById&#40;&#34;test&#34;&#41; &#41;;
+</pre>
+<hr />
+<h4>add&#40;String&#41;</h4>
+<h4>add&#40;Array&#41;</h4>
+<h4>add&#40;DOMElement&#41;</h4>
+<p>
+This method adds the DOMElement, or the array of DOMElmements onto the list of matched elements. If a String is provided, the String is interpreted as an expression, and those elements are added to the list.
+
+</p>
+<pre>$&#40;&#34;p&#34;&#41;.add&#40;&#34;div&#34;&#41;;
+</pre>
+<p>
+The above is the combination of all paragraph and div elements, which is the same as:
+
+</p>
+<pre>$&#40;&#34;p,div&#34;&#41;
+</pre>
+<h3>Events</h3>
+<h4>bind&#40;String,Function&#41;</h4>
+<p>
+Attaches the specified function to all the matched objects for the &#39;String&#39; event.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.bind&#40;&#34;click&#34;,function&#40;&#41;{
+  alert&#40;&#34;Hello!&#34;&#41;;
+}&#41;;
+</pre>
+<hr />
+<h4>unbind&#40;String,Function&#41;</h4>
+<p>
+Unattaches the specified function from all the matched objects for the &#39;String&#39; event.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>var b = function&#40;&#41;{ alert&#40;&#34;Hello!&#34;&#41;; };
+$&#40;&#34;h3&#34;&#41;.bind&#40;&#34;click&#34;,b&#41;;
+$&#40;&#34;h3&#34;&#41;.unbind&#40;&#34;click&#34;,b&#41;;
+</pre>
+<h3>Iterator Methods</h3>
+<h4>size&#40;&#41;</h4>
+<p>
+Returns the number of matched elements.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>alert&#40;$&#40;&#34;p&#34;&#41;.size&#40;&#41;&#41;;
+</pre>
+<hr />
+<h4>get&#40;&#41;</h4>
+<p>
+Returns an array of all elements matched.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>alert&#40;$&#40;&#34;p&#34;&#41;.get&#40;&#41;&#41;;
+</pre>
+<hr />
+<h4>get&#40;N&#41;</h4>
+<p>
+If N is provided, returns the Nth element matched.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>alert&#40;$&#40;&#34;p&#34;&#41;.get&#40;0&#41;&#41;;
+</pre>
+<hr />
+<h4>each&#40;Function&#41;</h4>
+<p>
+Executes this function against every element matched. The scope of  the function is within the element itself, to make coding simpler. The function is also passed a single parameter containing the index of the element within the matched element set.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.each&#40;function&#40;i&#41;{
+  this.innerHTML = this + &#34; is the Element, &#34; + 
+    i + &#34; is the Position&#34;;
+}&#41;;
+</pre>
+<h3>Object Modification</h3>
+<h4>set&#40;Key,Value&#41;</h4>
+<p>
+Sets the &#39;Key&#39; parameter of every element to &#39;Value&#39;. Similar to doing: element.Key = Value;
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre>$&#40;&#34;input&#34;&#41;.set&#40;&#34;value&#34;,&#34;test&#34;&#41;;
+</pre>
+<hr />
+<h4>set&#40;Hash&#41;</h4>
+<p>
+Takes a hash of Key/Value pairs and runs set&#40;Key,Value&#41; on every matched element
+.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre>$&#40;&#34;input&#34;&#41;.set&#40;{value:&#34;test&#34;,foo:bar}&#41;;
+</pre>
+<h3>DOM Modification Methods</h3>
+<h4>html&#40;String&#41;</h4>
+<p>
+Sets the entire inner html of all matched elements to the HTML string provided as an argument.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.html&#40;&#34;Some text &lt;b&gt;and bold!&lt;/b&gt;&#34;&#41;;
+</pre>
+<hr />
+<h4>remove&#40;&#41;</h4>
+<p>
+Removes all the currently selected elements from the DOM. This is more explicit then hide&#40;&#41;, for example, in that the elements physically no longer exist.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.remove&#40;&#41;;
+</pre>
+<hr />
+<h4>append&#40;String&#41;</h4>
+<h4>append&#40;DOMElement,DOMElement,...&#41;</h4>
+<h4>append&#40;Array&#41;</h4>
+<p>
+Appends the HTML string &#40;or the list of DOMElements, or the array of DOMElements&#41; to the end &#40;of the inside&#41; of each element matched.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.append&#40;&#34;Some text &lt;b&gt;and bold!&lt;/b&gt;&#34;&#41;;
+</pre>
+<hr />
+<h4>prepend&#40;...&#41;</h4>
+<p>
+Same as append, but inserts the HTML at the top of the inside of each element matched.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.prepend&#40;&#34;Some text &lt;b&gt;and bold!&lt;/b&gt;&#34;&#41;;
+</pre>
+<hr />
+<h4>before&#40;...&#41;</h4>
+<p>
+Same as append, but inserts the HTML before each element matched.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.before&#40;&#34;Some text &lt;b&gt;and bold!&lt;/b&gt;&#34;&#41;;
+</pre>
+<hr />
+<h4>after&#40;...&#41;</h4>
+<p>
+Same as append, but inserts the HTML after each element matched.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.after&#40;&#34;Some text &lt;b&gt;and bold!&lt;/b&gt;&#34;&#41;;
+</pre>
+<hr />
+<h4>wrap&#40;...&#41;</h4>
+<p>
+Wraps HTML around the each matched element. For example, running the below code will turn all P elements into &lt;p class=&#39;ohmy&#39;&gt;&lt;p&gt;...&lt;/p&gt;&lt;/p&gt;.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.wrap&#40;&#34;&lt;p class=&#39;ohmy&#39;&gt;&lt;/p&gt;&#34;&#41;;
+</pre>
+<h3>Style Methods</h3>
+<h4>style&#40;Key,Value&#41;</h4>
+<p>
+Sets the &#39;Key&#39; style parameter of every element to &#39;Value&#39;. Similar to doing: element.style.Key = Value;
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.style&#40;&#34;font&#34;,&#34;14px Arial&#34;&#41;;
+</pre>
+<hr />
+<h4>style&#40;Hash&#41;</h4>
+<p>
+Takes a hash of Key/Value pairs and runs style&#40;Key,Value&#41; on every matched element.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.style&#40;{
+  font:&#34;14px Arial&#34;,
+  border:&#34;1px solid #000&#34;
+}&#41;;
+</pre>
+<hr />
+<h4>addClass&#40;String&#41;</h4>
+<p>
+Adds the class to every matched element. Will not add the class if the class already exists on an element.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p:even&#34;&#41;.addClass&#40;&#34;even&#34;&#41;;
+</pre>
+<hr />
+<h4>removeClass&#40;String&#41;</h4>
+<p>
+Removes the class on every matched element. Will not fail if the class does not exist.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.removeClass&#40;&#34;even&#34;&#41;;
+</pre>
+<h3>Basic Effects</h3>
+<h4>hide&#40;&#41;</h4>
+<p>
+This function hides all the matched elements, so that they are no longer shown on the screen.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.hide&#40;&#41;;
+</pre>
+<hr />
+<h4>show&#40;&#41;</h4>
+<p>
+This function reveals all the matched elements, so that they are  shown on the screen.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.show&#40;&#41;;
+</pre>
+<hr />
+<h4>toggle&#40;&#41;</h4>
+<p>
+This function reveals all hidden, matched, elements and hides are visible, matched, elements.
+
+</p>
+<p>
+<strong>Example:</strong>
+</p>
+<pre class='run'>$&#40;&#34;p&#34;&#41;.toggle&#40;&#41;;
+</pre>
+</div>
+<!-- BEGIN display_changed_by -->
+
+<!-- END display_changed_by -->
+
+<!-- END display_content -->
+
+</div>
+<!-- END theme_content_pane -->
+
+
+<!-- BEGIN theme_html_end -->
+<!-- BEGIN kwiki_end -->
+	</div></div>
+</body>
+</html>
+
+

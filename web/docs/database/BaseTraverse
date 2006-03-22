@@ -1,0 +1,68 @@
+This code is part of the the [jQuery Base http://jquery.com/docs/base/] module.
+
+=== DOM Traversing
+
+==== find(String)
+
+This looks for more elements within the context of all matched elements. In CSS-speak, the below is the same as doing: "p a".
+
+  $("p").find("a").css("fontWeight","bold");
+
+----
+
+==== end()
+
+The purpose of this function is to end the current find() and revert back to the last time either find() or $() was called. The main advantage that this has is the ability to do multiple finds, for example:
+
+  $("p")
+    .find("a")
+      .css("fontWeight","bold")
+    .end()
+    .find("img")
+      .hide()
+    .end();
+
+The above code finds all the paragraphs, then finds  all the A tags, makes them bold, then finds all the IMG tags (within all the paragraphs) and hides them.
+
+----
+
+==== filter(String)
+
+The difference between find and filter is an important one: find locates all child elements that match the specified expression, filter removes any elements (from the current set of matched elements) that do not match the expression.
+
+  $("p").filter(".ohmy");
+
+The above code finds all paragraph elements and then removes any of the matched elements which do not have an ohmy class.
+
+----
+
+==== not(String)
+
+When you pass a String to the not function, it does the exact opposite as filter - in that it only keeps the elements that do not match the expresion.
+
+  $("p").not(".ohmy");
+
+The above would only return the paragraphs which do not have an ohmy class.
+
+----
+
+==== not(!DOMElement)
+
+This removes the specified !DOMElement from the list of matched elements. Does not complain if the element is already not in the list.
+
+  // Bad example, but you get the idea
+  $("p").not( document.getElementById("test") );
+
+----
+
+==== add(String)
+==== add(Array)
+==== add(!DOMElement)
+
+This method adds the !DOMElement, or the array of !DOMElmements onto the list of matched elements. If a String is provided, the String is interpreted as an expression, and those elements are added to the list.
+
+  $("p").add("div");
+
+The above is the combination of all paragraph and div elements, which is the same as:
+
+  $("p,div")

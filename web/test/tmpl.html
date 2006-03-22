@@ -1,0 +1,64 @@
+index.html:
+<html>
+<head>
+<script src="http://jquery.com/src/latest/"></script>
+<script>
+  $(document).ready(function(){
+	  $("body").load("rss.js","tmpl.html");
+	});
+</script>
+</head>
+<body></body>
+</html>
+
+tmpl.html:
+<h1><a href="$link">$title</a></h1>
+<dl each="entries">
+	$entry
+</dl>
+
+<div tmpl="entry">
+	<dt>$title</dt>
+	<dd>$content</dd>
+</div>
+
+rss.js:
+{
+  title: 'John Resig',
+  link: 'http://ejohn.org',
+  description: 'Blog, Projects, and Links',
+  author: '',
+  modified: '2006-02-16 03:42:58',
+  entries: [
+    {
+      title: 'Image Cross Fade',
+      link: 'http://jquery.com/blog/2006/02/15/image-cross-fade/',
+      content: '<p>Today&#8217;s DHTML trick is a smooth example of <a href="http://slayeroffice.com/code/imageCrossFade/xfade2.html">Image Cross Fading</a>. The Javascript code for the whole page is rather short to begin with, but there was some rom for improvement. If you were to look at the <a href="http://slayeroffice.com/code/imageCrossFade/xfade2.js">original source file</a>, just about everything except for the variable declarations and the so_xfade method can be reduced to this snippet, using <a href="http://jquery.com/">jQuery</a>:</p> <pre>$(document).ready(function(){   $("head").append("&lt;link href=\'xfade2.css\'      rel=\'stylesheet\' type=\'text/css\'&gt;");   img = $("#imageContainer img").set("xOpacity",0).get();   $("#imageContainer img:first").set("xOpacity",0.99).show();   setTimeout(so_xfade,1000); });</pre> <p>Currently, there doesn&#8217;t seem to be a more elegant way of doing it in <a href="http://jquery.com/">jQuery</a>, but I can&#8217;t really complain, considering how much more understandable the code is, compared to doing it the DOM way. </p> 		<img src="http://ejohn.org/apps/rss/?from=rss&id=5361" style="width:0px;height:0px;"/>',
+      author: 'John Resig',
+      category: [],
+      issued: '2006-02-15 18:13:01',
+      modified: null,
+      id: 'http://jquery.com/blog/2006/02/15/image-cross-fade/'
+    },
+    {
+      title: 'Greybox Redux',
+      link: 'http://jquery.com/blog/2006/02/10/greybox-redux/',
+      content: '<p>Another popular DOM/CSS/Javascript project popped up today: <a href="http://amix.dk/greybox/demo.html">Greybox</a>. It&#8217;s a lot like the popular <a href="http://www.huddletogether.com/projects/lightbox/">lightbox</a>, but is used to display web sites on top of your current page.</p> <p>I saw this as another great opportunity to demonstrate how easy it is to make great code with <a href="http://jquery.com/">jQuery</a>. I modified greybox in two phases.</p> <ol> <li>First step was to make greybox work unobtrusively (they embeded javascript into the page to make it work) and to fix the broken back-button (you&#8217;d have to hit back twice after visiting a site).</li> <li>The next step was to completely overhaul the library itself and remove the need for Amir&#8217;s personal Javascript library - leaving it to run completely using jQuery. The resulting code is only about 1.2kb (compared to the original 12kb of the original).</li> </ol> <p>A <big><b><a href="http://jquery.com/demo/grey/">demo and a download</a></b></big> are available if you&#8217;re interested in seeing some more examples of how jQuery works in a practical application. Enjoy! </p> 		<img src="http://ejohn.org/apps/rss/?from=rss&id=5360" style="width:0px;height:0px;"/>',
+      author: 'John Resig',
+      category: [],
+      issued: '2006-02-10 22:49:06',
+      modified: null,
+      id: 'http://jquery.com/blog/2006/02/10/greybox-redux/'
+    },
+    {
+      title: 'Gmail Chat',
+      link: 'http://ejohn.org/blog/gmail-chat/',
+      content: '	<p>Google <i>just</i> rolled out transcripts of chat conversations within Gmail, here&#8217;s a quick screenshot:<br /> <img src="http://ejohn.org/files/gmailchat.png"/></p> 	<p>They mention that a new <a href="http://mail.google.com/mail/help/chat.html">in-browser chat tool</a> is coming too, although I don&#8217;t see it yet. Currently, chats are saved like emails, and you can reply to the person you were chatting with, like in an email - a very neat combination of two mediums. Check it out and <a href="mailto:jeresig@gmail.com">drop me an IM</a>. </p> 		<img src="http://ejohn.org/apps/rss/?from=rss&id=5330" style="width:0px;height:0px;"/>',
+      author: 'John Resig',
+      category: ['gmail','mail','chat','google'],
+      issued: '2006-02-07 00:52:26',
+      modified: null,
+      id: 'http://ejohn.org/blog/gmail-chat/'
+    }
+  ]
+}

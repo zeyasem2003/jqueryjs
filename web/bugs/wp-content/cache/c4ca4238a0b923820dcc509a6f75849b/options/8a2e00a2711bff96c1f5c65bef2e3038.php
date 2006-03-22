@@ -1,0 +1,8 @@
+<?php
+//s:1523:"O:9:"magpierss":17:{s:6:"parser";i:0;s:12:"current_item";a:0:{}s:5:"items";a:1:{i:0;a:3:{s:5:"title";s:16:"No results found";s:11:"description";s:48:"No results were found for http://jquery.com/bugs";s:7:"summary";s:48:"No results were found for http://jquery.com/bugs";}}s:7:"channel";a:10:{s:9:"generator";s:15:"Technorati v1.0";s:9:"webmaster";s:43:"support@technorati.com (Technorati Support)";s:4:"docs";s:37:"http://blogs.law.harvard.edu/tech/rss";s:3:"ttl";s:2:"60";s:4:"tapi";a:3:{s:6:"result";s:5:"
+    ";s:10:"result_url";s:22:"http://jquery.com/bugs";s:19:"result_rankingstart";s:1:"0";}s:6:"result";s:16:"
+    
+    
+    
+";s:5:"title";s:23:"Technorati Search for: ";s:4:"link";s:22:"http://jquery.com/bugs";s:7:"pubdate";s:29:"Thu, 01 Jan 1970 00:00:00 GMT";s:7:"tagline";N;}s:9:"textinput";a:4:{s:5:"title";s:17:"Search Technorati";s:11:"description";s:43:"Search millions of blogs for the latest on:";s:4:"name";s:1:"s";s:4:"link";s:36:"http://www.technorati.com/search.php";}s:5:"image";a:3:{s:3:"url";s:50:"http://static.technorati.com/pix/logos/logo_sm.gif";s:5:"title";s:15:"Technorati logo";s:4:"link";s:25:"http://www.technorati.com";}s:9:"feed_type";s:3:"RSS";s:12:"feed_version";s:3:"2.0";s:5:"stack";a:0:{}s:9:"inchannel";b:0;s:6:"initem";b:0;s:9:"incontent";b:0;s:11:"intextinput";b:0;s:7:"inimage";b:0;s:13:"current_field";s:0:"";s:17:"current_namespace";b:0;s:19:"_CONTENT_CONSTRUCTS";a:6:{i:0;s:7:"content";i:1;s:7:"summary";i:2;s:4:"info";i:3;s:5:"title";i:4;s:7:"tagline";i:5;s:9:"copyright";}}";
+?>

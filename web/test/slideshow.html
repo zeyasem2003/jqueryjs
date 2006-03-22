@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Cirqe Gallery</title>
+  <base href="http://scratch.syntheticplayground.com/"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="css/screen.css" rel="stylesheet" type="text/css" media="screen,projection" />
+  <!--[if lte IE 7]>
+    <link href="css/screen_ie.css" rel="stylesheet" type="text/css" media="screen,projection" />
+  <![endif]-->
+
+  <!--
+    <script type="text/javascript" src="js/prototype.js"></script>
+    <script type="text/javascript" src="http://jquery.com/src/dev/"></script>
+  -->
+
+  <script type="text/javascript" src="http://jquery.com/src/dev/"></script>
+  <script type="text/javascript">
+  function modalToggle(name) {
+    $(".modalDialog").toggle();
+    $("#modalOverlay").toggle();
+  }
+  
+  Gallery = {
+    self: this,
+    
+    initialize: function(list) {
+      self.list = list;
+      self.idx = 0;
+      
+      $("#galleryModal img").center();
+      
+      self.active = $("#galleryModal img.active");
+      self.inactive = $("#galleryModal img.inactive");
+  
+      Gallery.updateCount();
+    },
+  
+    playback: function() {
+      $("#galleryModal .play").toggle();
+      $("#galleryModal .stop").toggle();
+  
+      if (self.playback_timer) {
+        
+      } else {
+        
+      }
+    },
+    
+    next: function() {
+      Gallery.ready();
+      self.idx = (self.idx + 1) % self.list.length;
+      Gallery.updateCount();
+      Gallery.swapImages();
+    },
+    
+    prev: function() {
+      Gallery.ready();
+      self.idx = ((self.idx == 0 ? self.list.length : self.idx) - 1);
+      Gallery.updateCount();
+  //updateInactive(src, width, height, caption);
+      Gallery.swapImages();
+    },
+  
+    updateCount: function () {
+      Gallery.ready();
+      $("#galleryModal .counts .picNum").html(self.idx + 1);
+      $("#galleryModal .counts .picCount").html(self.list.length);
+    },
+  
+    swapImages: function() {
+  //    self.active.fadeOut("slow");
+  self.active.fadeIn("slow");
+  self.inactive.fadeOut("slow");
+  
+      var t = self.active;
+      self.active = self.inactive;
+      self.inactive = t;
+    },
+    
+    ready: function() {
+      if (!self.list) {
+        throw Error("Forgot to call Gallery.initialize()");
+      }
+    }
+  }
+  </script>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      Gallery.initialize(new Array(3)); // placeholder, load up image data here.
+    });
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    Content, yeah.
+  </div>
+
+  <div id="modalOverlay"></div>
+  <div id="galleryModal" class="modalDialog">
+    <div class="controls">
+      <a href="#" class="prev" onclick="Gallery.prev(); return false;"><span class="aquo">&laquo; </span>previous</a>
+      <span class="play" style="display: inline">
+        [<a href="#" onclick="Gallery.playback(); return false;">Slideshow</a>]
+      </span>
+
+      <span class="stop" style="display: none">
+        [<a href="#" onclick="Gallery.playback(); return false;">Stop</a>]
+      </span>
+      <a href="#" class="next" onclick="Gallery.next(); return false;">next<span class="aquo"> &raquo;</span></a>
+    </div>
+    <img class="button close" width="17" height="17" alt="[X]" src="images/close.gif"
+        onmouseover="this.src = 'images/close_over.gif'; return false;"
+        onmouseout="this.src = 'images/close.gif'; return false;"
+        onclick="modalToggle('gallery'); return false;" />
+
+    <div class="picture" style="position: relative;">
+
+      <img src="img_slide.jpg" class="active" onclick="Gallery.next();" width="180" height="240" alt="[[CAPTION]]" />
+      <img src="img2_slide.jpg" class="inactive" onclick="Gallery.next();" width="320" height="212" alt="[[CAPTION]]" style="display: none" />
+    </div>
+
+    <div class="caption"><span class="captionText">Caption Text Goes Here</span> [<a href="#">edit</a>]</div>
+    <div class="counts"><span class="picNum">0000</span>/<span class="picCount">0000</span></div>
+
+  </div>
+</body>
+</html>
+

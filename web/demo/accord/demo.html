@@ -1,0 +1,88 @@
+<html>
+
+<head>
+
+	<title>jQuery accordion</title>
+	<script type="text/javascript" src="http://jquery.com/src/dev/"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('ul/li/div:gt(0)').hide();
+			$('ul/li/a').click(function(e){
+        var p = $('div', this.parentNode);
+				if (p.is(":hidden")) {
+					p.slideDown('slow');
+					$('ul/li/div:visible').not(p.get(0)).slideUp('fast');
+				}
+			})
+		});
+	</script>
+  <style>
+    body { text-align: center; background: #222; font-family: Arial; }
+    ul {
+			list-style: none;
+			padding: 0;
+			margin: 0 auto;
+			width: 300px;
+			text-align: left;
+			background: #FFF;
+		}
+    li a {
+			display: block;
+			/*color: #0E622B;*/
+			color: #FFF;
+			background: #9EBF33;
+			padding: 4px 2px;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+		li div {
+			padding: 4px 2px;
+		}
+  </style>
+</head>
+
+<body>
+
+<ul>
+	<li>
+		<a href="#">Lorem ipsum dolor sit amet</a>
+		<div id="a">
+			consectetuer adipiscing elit<br/>
+			Sed lorem leo<br/>
+			lorem leo consectetuer adipiscing elit<br/>
+
+			Sed lorem leo<br/>
+			rhoncus sit amet
+		</div>
+	</li>
+	<li>
+		<a href="#">elementum at</a>
+		<div id="b">
+			bibendum at, eros<br/>
+
+			Cras at mi et tortor egestas vestibulum<br/>
+			sed Cras at mi vestibulum<br/>
+			Phasellus sed felis sit amet
+		</div>
+	</li>
+	<li>
+		<a href="#">orci dapibus semper.</a>
+		<div id="c">
+
+			Morbi eros massa<br/>
+			interdum et, vestibulum id, rutrum nec<br/>
+			bibendum at, eros<br/>
+			Cras at mi et tortor egestas vestibulum<br/>
+			Phasellus sed felis sit amet<br/>
+			Morbi eros massa<br/>
+
+			interdum et, vestibulum id, rutrum nec<br/>
+			Phasellus sem leo
+		</div>
+	</li>
+</ul>
+
+</body>
+
+</html>

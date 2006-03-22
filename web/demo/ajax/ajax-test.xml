@@ -1,0 +1,4 @@
+<foo>
+  <title>This was loaded from an external XML file.</title>
+  <baz></baz>
+</foo>

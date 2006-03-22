@@ -1,0 +1,117 @@
+
+
+<!-- END theme_html_doctype -->
+
+<html>
+<head>
+	<title>jQuery: Documentation: Plugin</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <script type="text/javascript" src="/src/latest/"></script>
+	<script type="text/javascript" src="/js/global.js"></script>
+</head>
+<body>
+<div class="head"></div>
+	<div class="wrap"><div class="wrap2"><br/>
+		<h1><a href="/"><img src="/images/hat2.gif"/> jQuery</a><br/><span>New Wave Javascript</span></h1>
+		
+<!-- END kwiki_begin -->
+
+<!-- END theme_html_begin -->
+
+<br/>
+<div class="navigation">
+<!-- BEGIN theme_title_pane -->
+<div id="title_pane">
+<h2><a href="/docs/">Docs</a> &raquo; Plugin
+<!--<span>(<a href="/docs/Plugin/edit/" rel="nofollow">Edit</a>)</span>--></h2>
+</div><br/>
+<!-- END theme_title_pane -->
+
+<!-- BEGIN theme_status_pane -->
+<div id="status_pane">
+<!-- BEGIN status_pane -->
+<div class="status">
+
+</div>
+<!-- END status_pane -->
+
+</div>
+<!-- END theme_status_pane -->
+
+</div>
+
+<!-- BEGIN theme_content_pane -->
+<div id="content_pane">
+<!-- BEGIN display_content -->
+<div class="wiki">
+<p>
+jQuery offers a fully-extensible framework for adding in new methods and functionality. Most of the plugins included in the default download are written using the jQuery plugin construct.
+
+</p>
+<p>
+Plug-in writing comes in two steps. The first is writing any of your public methods, for example:
+
+</p>
+<pre>$.fn.debug = function&#40;&#41; {
+  return this.each&#40;function&#40;&#41;{
+    alert&#40;this&#41;;
+  };
+};
+</pre>
+<p>
+Coders will now be able to call your new plugin, like so:
+
+</p>
+<pre>$&#40;&#34;div p&#34;&#41;.debug&#40;&#41;;
+</pre>
+<p>
+There are a couple of very important points to remember:
+
+</p>
+<ul>
+<li>All new functions are attached to the $.fn object.</li>
+<li>&#39;this&#39; is a reference to the $&#40;&#41; object.</li>
+<li>Any functions you attach must have a semicolon &#40;;&#41; at the end of the function - otherwise the code may bork during compression.</li>
+<li>Your function must return the $&#40;&#41; object, unless explicity noted otherwise.</li>
+<li>You should use this.each to interate over the current set of matched elements - it produces clean, compatible, code that way.</li>
+</ul>
+
+<p>
+If you need to write any private methods &#40;ones that the end-coder doesn&#39;t need to see&#41;, you can feel free to bind them to the $ object itself, for example:
+
+</p>
+<pre>$.test = function&#40;&#41; {
+  // Do some internal stuff
+};
+</pre>
+<p>
+You can then access it in the same manner:
+
+</p>
+<pre>$.test&#40;&#34;some stuff&#34;&#41;;
+</pre>
+<p>
+We recommend that you do it this way so that your code doesn&#39;t accidentally overwrite any other functions that the user may be using.
+
+</p>
+<p>
+If you&#39;re curious as to how a full module looks, feel free to <a href="http://jquery.com/src/">Browse the Source Code</a>
+</p>
+</div>
+<!-- BEGIN display_changed_by -->
+
+<!-- END display_changed_by -->
+
+<!-- END display_content -->
+
+</div>
+<!-- END theme_content_pane -->
+
+
+<!-- BEGIN theme_html_end -->
+<!-- BEGIN kwiki_end -->
+	</div></div>
+</body>
+</html>
+
+

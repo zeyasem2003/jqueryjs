@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+	<head>
+		<base href="http://kashou.be/jquery/tests/"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>class - jQuery Test</title>
+		<script type="text/javascript" src="http://jquery.com/src/dev/"></script>
+		<script type="text/javascript" src="jqtest2.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				jQTest.init();
+				jQTest.assert('$("[@class^=\'test\']").size()',4);
+				jQTest.assert('$("[@class*=\'test\']").size()',5);
+				jQTest.assert('$(".test").size()',1);
+				jQTest.run();
+			});
+		</script>
+
+		<style type="text/css">
+			.test {color:#191;}
+		</style>
+	</head>
+	<body>
+		<h1>jQuery Test: class</h1>
+		<div class="test">A div with class 'test'</div>
+		<div class="testother">A div with class 'testother'.</div>
+		<div class="other-test">A div with class 'other-test'.</div>
+
+		<div class="test-other">A div with class 'test-other'.</div>
+		<div class="testagain">A div with class 'testagain'.</div>
+	</body>
+</html>
+

@@ -1,0 +1,59 @@
+The jQuery Basic Effects library encapsulates a [custom implementation http://jquery.com/src/minifx/minifx-latest.js] of the moo.fx library. Currently, only a handful of the effects are implemented into the full jQuery framework, although more will be coming soon.
+
+==== show(String)
+
+The effects module overloads the show method to now allow for a speed to the show operation. What actually happens is that the height, width, and opacity to the matched elements are changed dynamically. The only three current speeds are "slow", "normal", and "fast". For example:
+
+  $("p").show("slow");
+
+*Note:* You should not run the show method on things that are already shown. This can be circumvented by doing this:
+
+  $("p:hidden").show("slow");
+
+----
+
+==== hide(String)
+
+The hide function behaves very similary to the show function, but is just the opposite.
+
+  $("p:visible").hide("slow");
+
+----
+
+==== slideDown(String)
+
+This function increases the height and opacity for all matched elements. This is very similar to 'show', but does not change the width - creating a neat sliding effect.
+
+  $("p:hidden").slideDown("slow");
+
+----
+
+==== slideUp(String)
+
+Just like slideDown, only it hides all matched elements.
+
+  $("p:visible").slideUp("slow");
+
+----
+
+==== fadeIn(String)
+
+Adjusts the opacity of all matched elements from a hidden, to a fully visible, state.
+
+  $("p:hidden").fadeIn("slow");
+
+----
+
+==== fadeOut(String)
+
+Same as fadeIn, but transitions from a visible, to a hidden state.
+
+  $("p:visible").fadeOut("slow");
+
+----
+
+==== center()
+
+Takes all matched elements and centers them, absolutely, within the context of their parent element. Great for doing slideshows.
+
+  $("div img").center();

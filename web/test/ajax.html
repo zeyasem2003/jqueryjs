@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>AJAX</title>
+    <script src="http://jquery.com/src/dev/" type="text/javascript"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").load("ajax-test.html",function(){alert("done");});
+			//$.get("ajax-test.xml",function(xml){
+				//$("body").html("<h1>"+$("title",xml).text()+"</h1>");
+			//});
+		});
+		</script>
+  </head>
+  <body>
+  </body>
+</html>

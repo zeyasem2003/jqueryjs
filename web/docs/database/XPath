@@ -1,0 +1,57 @@
+One of the selector languages that jQuery supports, as a part of it's [expression language BaseExpression] is XPath. jQuery supports basic [http://www.w3.org/TR/xpath XPath expressions], in addition to [CSS] 1-3. Here are some samples:
+
+  $("/html/body//p")
+  $("//p")
+  $("//p/a")
+  $("//a[@src]")
+  $("//a[@src='google.com']")
+
+=== Location Paths
+
+Absolute Paths
+  $("/html/body//p")
+  $("/*/body//p")
+  $("//p/../div")
+
+Relative Paths
+  $("a",this)
+  $("p/a",this)
+
+=== Supported Axes
+
+*descendant::* Element has a descendant element
+  $("//div/descendant::p")
+  same as: $("//div//p")
+*child::* Element has a child element
+  $("//div/child::p")
+  same as: $("//div/p")
+*preceding-sibling::* Element has an element before it, on the same axes
+  $("//div/preceding-sibling::form")
+*parent::* Selects the parent element of the element
+  $("//div/parent::div")
+  same as: $("//div/../div")
+*self::* Selects the element itself
+
+=== Supported Predicates
+
+[@*] Has an attribute
+  $("//div[@*]")
+*[@foo]* Han an attribute of foo
+  $("//input[@checked]")
+*[@foo='test']* Attribute foo is equal to test
+  $("//a[@ref='nofollow']")
+*[ Nodelist]* Element contains a node list, for example:
+  $("//div[p]")
+  $("//div[p/a]")
+
+=== Supported Predicates, but differently
+
+*[last()] or [position()=last()]* becomes *:last*
+  $("p:last")
+*[ 0] or [position()=0]* becomes *:eq(0)* or *:first*
+  $("p:first")
+  $("p:eq(0)")
+*[position() < 5]* becomes *:lt(5)*
+  $("p:lt(5)")
+*[position() > 2]* becomes *:gt(2)*
+  $("p:gt(2)")

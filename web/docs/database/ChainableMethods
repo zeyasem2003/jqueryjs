@@ -1,7 +1,0 @@
-jQuery uses a new concept to make the code short and simple. For those familiar with object-oriented programming, this concept should be rather straight-forward.
-
-In a nutshell: Every method within jQuery returns the query object itself, allowing you to 'chain' upon it, for example:
-
-  $("p").addClass("test").show().html("foo");
-
-Each of those individual methods (addClass, show, and html) each return the query object, allowing you to continue applying methods to the current set of elements.
